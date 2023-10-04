@@ -28,7 +28,7 @@ Usage:
 Sorting is optional
 ```
 
-## Example output
+## Example Output
 
 ```
 Device       | Model/Device | Serial Number | Size GiBs | Capacity | Status | Power On Hours            | Temperature
@@ -41,3 +41,43 @@ Device       | Model/Device | Serial Number | Size GiBs | Capacity | Status | Po
 /mnt/hdd6tbf | ST6000NM0275 | PZX7RF3D      | 5589.03   | 6,00 TB  | PASSED | 1 year, 11 months, 9 days | 30 (0 9 0 0 0)
 /mnt/hdd6tbg | ST6000NM0275 | HJK8MC0N      | 5589.03   | 6,00 TB  | PASSED | 1 year, 11 months, 9 days | 30 (0 9 0 0 0)
 ```
+
+### Known Issues:
+
+Sorting to header values that contain spacing in the name (Serial Number, Size GiBs, Power On Hours) does not output correctly
+
+## hdd_details_json.py
+
+This script does not generate an output in the terminal but creates a .JSON file with info about the hdds
+
+## Example Output:
+
+```json
+{
+  "hard-drives": [
+    {
+      "drive_number": 1,
+      "device": "/mnt/hdd6tba",
+      "model": "ST6000NM0275",
+      "serial": "NYP6LB9Q",
+      "capacity": "6,00 TB",
+      "power on hours": "1 year, 11 months, 9 days",
+      "temperature": "30 (0 9 0 0 0)"
+    },
+        {
+      "drive_number": 2,
+      "device": "/mnt/hdd6tbb",
+      "model": "ST6000NM0275",
+      "serial": "ZAD1NNZY",
+      "capacity": "6,00 TB",
+      "power on hours": "1 year, 11 months, 9 days",
+      "temperature": "30 (0 9 0 0 0)"
+    },
+    ...
+  ]
+}
+```
+
+### Known Issues:
+
+None
